@@ -15,25 +15,7 @@ app.get('/hello/:name', function(req,res){
     res.send('sey hello with ' + req.params.name)
 })
 
-app.get('/user/:userID', function(req,res){
-    res.send('ดูข้อมูลผู้ใช้' + req.params.userID)
-})
-
-app.get('/users', function(req,res){
-    res.send('ดูข้อมูลผู้ใช้ทั้งหมด')
-})
-
-app.post('/user/', function(req,res){
-    res.send('สร้างผู้ใช้' + JSON.stringify(req.body))
-})
-
-app.put('/user/:userID', function(req,res){
-    res.send('แก้ไขข้อมูลผู้ใช้' + req.params.userID + JSON.stringify(req.body))
-})
-
-app.delete('/user/:userID', function(req,res){
-    res.send('ลบข้อมูลผู้ใช้' + req.params.userID + JSON.stringify(req.body))
-})
+require('./route')(app)
 
 let port = 8081
 app.listen(port, function(){
